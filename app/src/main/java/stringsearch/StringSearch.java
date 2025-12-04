@@ -39,11 +39,10 @@ public class StringSearch {
                 lineNumber++;
             }
         } catch (FileNotFoundException e) {
-            System.out.println(String.format("Could not find file: %s",
+            System.out.println(String.format("Could not find file %s",
                 fileName));
-            e.printStackTrace();
+            return;
         }
-        
         // Print results
 
         if(matches.size() == 0) {
@@ -51,7 +50,7 @@ public class StringSearch {
                 "Found no matches for \"%s\" in file %s", pattern, fileName));
         } else {
             System.out.println(String.format(
-                "Found the following matching lines in file %s", fileName));
+                "Found the following matching lines in file %s:", fileName));
             
             for (int i = 0; i < matches.size(); i++) {
                 System.out.println(matchIndices.get(i) + ": " + matches.get(i));
